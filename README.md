@@ -1,8 +1,13 @@
 Simple Rails project
 
-Skills after completed it:
+Skills after completing:
 1. Setting up Rails project
-2. MVC architecture
-3. REST architecture
-4. Authentication basics
-5. Heroku deploy
+2. Data Structures & Relationships
+3. Routing
+4. Migrations
+5. Views with forms, partials, helpers
+6. Adding gems for extra features
+7. MVC architecture
+8. RESTful design
+9. Authentication basics
+10. Heroku deploy
