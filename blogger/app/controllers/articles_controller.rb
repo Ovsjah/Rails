@@ -7,6 +7,8 @@ class ArticlesController < ApplicationController
   def show
     @article = Article.find(params[:id])  # instance variable that uses find method on our model Article class and takes params[:id] from the requested url as parameter to find the requested article in the db
     #render plain: params.inspect
+    @comment = Comment.new
+    @comment.article_id = @article.id
   end
 
   def new
@@ -47,7 +49,7 @@ class ArticlesController < ApplicationController
     # the most correct way of creation @article var with Strong Parameters that use two new methods, require and permit. They help to declare which attributes to accept. They're used in a helper method inside app/helpers/articles_helper.rb
     @article = Article.new(article_params)
     @article.save
-    
+
     flash.notice = "Article '#{@article.title}' Created!"
 
     redirect_to article_path(@article)
