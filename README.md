@@ -44,6 +44,23 @@ Steps:
 41) add comments count to our show template
 42) improve the form partial for comments to show "Your Name" and "Your Comment"
 43) modify the comment partial to show timestamp using "distance_of_time_in_words(first_date, second_date)" helper
+44) rails generate model Tag name:string && rails generate model Tagging tag:references article:references
+45) rake db:migrate
+46) set our ralationships in article.rb and tag.rb
+47) testing through rails console (a = Article.first; a.tags.create name: "tag1"; a.tags.create name: "tag2"; a.tags; a.taggings)
+48) create an interface for tagging articles by modifying the partial for articles `_form.html.erb`
+49) defying tag_list func inside article.rb model
+50) modifying article_params method inside articles_helper.rb to accept tag_list parameter
+51) def tag_list=(tags_string) method inside article.rb to associate the article with tags that are in tags_string
+52) modify articles show template to display tags
+53) rails generate controller tags
+54) add tags as a resource to our config/routes.rb
+55) def show action in app/controllers/tags_controller.rb
+56) create the show template app/views/tags/show.html.erb (Tagging.destroy_all method will destroy all tags)
+57) create index action in tags_controller.rb
+58) create index template for displaying listing of tags in views/tags
+59) create destroy action in tags_controller.rb
+60) modify views/tags/index template to handle deleting
 
 Skills after completing:
 1. Setting up Rails project
