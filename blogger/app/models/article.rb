@@ -2,6 +2,10 @@ class Article < ApplicationRecord
   has_many :comments  # article has many comments
   has_many :taggings # article has many taggings that is our mediator between tags and articles ralationship
   has_many :tags, through: :taggings  # an article has a list of tags through the relationship of taggings
+  has_many :attachments
+  has_attached_file :image, styles: { medium: "300x300>", thumb: "100x100>" }  # paperclip's method understands that this model has fields with image_ and accepts a file attachment
+  validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png"]  # paperclip's method that validates proper file types
+
   def tag_list  # create tag_list func
     self.tags.collect do |tag|  # by using collect iterator on tags objects from our tags db...
       tag.name  # and choosing them by name...

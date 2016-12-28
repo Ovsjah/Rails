@@ -5,6 +5,11 @@
     <%= link_to tag.name, tag_path(tag) %>
   <% end %>
 </p>
+<p>
+  <% if @article.image.exists? %>
+    <%= image_tag @article.image.url(:medium) %> <!-- shows image name and image for the proper article -->
+  <% end %>
+</p>
 <p><%= @article.body %></p>
 <h3>Comments (<%= @article.comments.size %>)</h3> <!-- adds comments count -->
 <%= render partial: 'articles/comment', collection: @article.comments %> <!-- this renders a partial named 'comment' once for each element in the collection @article.comments -->

@@ -1,0 +1,10 @@
+<%= form_for(@attachment, htmls: {multipart: true}) do |f| %>
+
+  <p>
+    <%= f.label :image, "Attach a New Image" %>
+    <%= f.file_field :image %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

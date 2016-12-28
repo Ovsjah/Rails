@@ -1,4 +1,4 @@
-<%= form_for(@article) do |f| %>  <!-- create a form for the object named @article, refer to the form by the name f and add the following elements to the form -->
+<%= form_for(@article, html: {multipart: true}) do |f| %>  <!-- create a form for the object named @article that accepts multipart data, refer to the form by the name f and add the following elements to the form -->
   <ul>
   <% @article.errors.full_messages.each do |error| %>
     <li><%= error %></li>
@@ -15,6 +15,13 @@
   <p>
     <%= f.label :tag_list %><br>
     <%= f.text_field :tag_list %>
+  </p>
+  <p>
+    <% if @article.image.exists? %>
+      <%= image_tag @article.image.url %><br>
+    <% end %>
+    <%= f.label :image, "Attach a New Image" %><br>
+    <%= f.file_field :image %> <!-- creates field for file uploading -->
   </p>
   <p>
     <%= f.submit %>  <!-- f.submit helper creates a button labeled "Create" -->

@@ -61,6 +61,18 @@ Steps:
 58) create index template for displaying listing of tags in views/tags
 59) create destroy action in tags_controller.rb
 60) modify views/tags/index template to handle deleting
+61) open Gemfile and add gem "paperclip", "5.0.0"
+62) also install ImageMagick cause paperclip is dependent on it
+63) bundle install
+64) rails generate migration add_paperclip_fields_to_article
+65) inside db/migrate/timestamp_add_paperclip_fields_to_article.rb file modify change method to add necessary fields to articles table
+66) rake db:migrate
+67) modify app/models/article.rb (has_attached_file :image; validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png"])
+68) modify articles_helper.rb with updating article_params to accept :image
+69) modify articles partial `_form.html.erb` for accepting the attachment
+70) modify the articles show template to show the attached image
+71) modify articles form partial to show the existing image while editing article
+72) modify articles' show template to display only existing images
 
 Skills after completing:
 1. Setting up Rails project

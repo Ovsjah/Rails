@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  include ArticlesHelper  # includes module ArticlesHelper to provide Strong Parameters
+  include ArticlesHelper # includes module ArticlesHelper to provide Strong Parameters
   def index
     @articles = Article.all  # creating an instance variable that is a list of articles for being accessed both in controller and view
   end
@@ -49,7 +49,7 @@ class ArticlesController < ApplicationController
     # the most correct way of creation @article var with Strong Parameters that use two new methods, require and permit. They help to declare which attributes to accept. They're used in a helper method inside app/helpers/articles_helper.rb
     @article = Article.new(article_params)
     @article.save
-
+    #render plain: params.inspect
     flash.notice = "Article '#{@article.title}' Created!"
 
     redirect_to article_path(@article)
