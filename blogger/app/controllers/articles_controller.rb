@@ -1,4 +1,5 @@
 class ArticlesController < ApplicationController
+  before_filter :require_login, except: [:index, :show]
   include ArticlesHelper # includes module ArticlesHelper to provide Strong Parameters
   def index
     @articles = Article.all  # creating an instance variable that is a list of articles for being accessed both in controller and view

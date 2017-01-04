@@ -1,5 +1,5 @@
 class TagsController < ApplicationController
-
+  before_filter :require_login, only: [:destroy]
   def index
     @tags = Tag.all  # create an instance variable that is a list of tags for being accessed both in controller and view
   end

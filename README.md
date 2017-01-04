@@ -73,6 +73,27 @@ Steps:
 70) modify the articles show template to show the attached image
 71) modify articles form partial to show the existing image while editing article
 72) modify articles' show template to display only existing images
+73) adding gem 'sorcery' to Gemfile for user Authentication
+74) bundle install
+75) rails generate sorcery:install --model=Author
+76) modify db/migrate/20170102191936_sorcery_core.rb by adding t.string :username,    :null => false
+77) rake db:migrate
+78) rails generate scaffold_controller Author username:string email:string password:password password_confirmation:password (Rails has two scaffold generators: scaffold and scaffold_controller. The scaffold generator generates the model, controller and views. The scaffold_controller will generate the controller and views)
+79) modify `authors/_form.html.erb` by changing f.text_field to f.password_field
+80) modify author.rb by adding validation field
+81) updating routes.rb by adding resources :authors
+82) create new author at http://localhost:3000/authors/new
+83) modify author's show.html.erb and index.html.erb by deleting password fields
+84) modify app/views/layouts/application.html.erb by adding footer
+85) rails generate controller AuthorSessions
+86) add new, create, destroy methods to app/controllers/author_sessions_controller.rb
+87) create app/views/author_sessions/new.html.erb for the login form
+88) modify config/routes.rb so we can access those actrions from the browser
+89) modify app/views/layouts/application.html.erb by adding links to newly created paths (login_path & logout_path)
+90) secure new users by modifying authors_controller.rb
+91) securing the rest of the app by modifying authors_controller, author_sessions_controller, tags_controller, comments_controller, articles_controller with before_filter
+92) hide all edit, destroy, new article links from unauthenticated users by modifying app/views/articles/show.html.erb, /articles/index.html.erb, /tags/index.html.erb
+
 
 Skills after completing:
 1. Setting up Rails project
